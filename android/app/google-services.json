@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "786119628442",
+    "project_id": "app-hidjab",
+    "storage_bucket": "app-hidjab.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:786119628442:android:dff326f0e170ede784b123",
+        "android_client_info": {
+          "package_name": "uz.storehidjab.app_store_hidjab"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCsqFNLct_bQF0UXbU3707fKDw9Cw_LCes"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
