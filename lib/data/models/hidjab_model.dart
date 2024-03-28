@@ -1,4 +1,4 @@
-class BookModel {
+class HidjabModel {
   final String docId;
   final String bookName;
   final String bookAuthor;
@@ -8,7 +8,7 @@ class BookModel {
   final String imageUrl;
   final String categoryId;
 
-  BookModel({
+  HidjabModel({
     required this.price,
     required this.imageUrl,
     required this.bookName,
@@ -19,8 +19,8 @@ class BookModel {
     required this.bookAuthor,
   });
 
-  factory BookModel.fromJson(Map<String, dynamic> json) {
-    return BookModel(
+  factory HidjabModel.fromJson(Map<String, dynamic> json) {
+    return HidjabModel(
       docId: json["doc_id"] as String? ?? "",
       imageUrl: json["image_url"] as String? ?? "",
       categoryId: json["category_id"] as String? ?? "",

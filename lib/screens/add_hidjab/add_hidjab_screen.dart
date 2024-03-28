@@ -1,3 +1,4 @@
+import 'package:app_store_hidjab/data/models/hidjab_model.dart';
 import 'package:app_store_hidjab/screens/add_hidjab/widgets/category_button.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
@@ -6,7 +7,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:zoom_tap_animation/zoom_tap_animation.dart';
 import '../../data/api_provider/api_provider.dart';
-import '../../data/models/book_model.dart';
 import '../../data/models/category_model.dart';
 import '../../services/local_notification_service.dart';
 import '../../utils/colors/app_colors.dart';
@@ -478,7 +478,7 @@ class _AddBookScreenState extends State<AddBookScreen> {
                       categoryDocId != '' &&
                       rateController.text != '' &&
                       bookAuthorController.text != '') {
-                    BookModel category = BookModel(
+                    HidjabModel category = HidjabModel(
                       price: double.parse(priceController.text),
                       imageUrl: imageUrlController.text,
                       rate: rateController.text,

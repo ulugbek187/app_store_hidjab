@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
 
-import '../../data/models/book_model.dart';
+import '../../data/models/hidjab_model.dart';
 import '../../utils/colors/app_colors.dart';
 import '../../utils/images/app_images.dart';
 import '../../utils/styles/app_text_style.dart';
@@ -17,7 +17,7 @@ class HidjabInfoScreen extends StatelessWidget {
     required this.bookModel,
   });
 
-  final BookModel bookModel;
+  final HidjabModel bookModel;
 
   @override
   Widget build(BuildContext context) {

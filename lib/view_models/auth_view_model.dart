@@ -114,17 +114,41 @@ class AuthViewModel extends ChangeNotifier {
     notifyListeners();
   }
 
-  Future<void> signInWithGoogle(BuildContext context,
-      [String? clientId]) async {
+  // Future<void> signInWithGoogle(BuildContext context,
+  //     [String? clientId]) async {
+  //   // Trigger the authentication flow
+  //   _notify(true);
+  //
+  //   final GoogleSignInAccount? googleUser =
+  //       await GoogleSignIn(clientId: clientId).signIn();
+  //
+  //   // Obtain the auth details from the request
+  //   final GoogleSignInAuthentication? googleAuth =
+  //       await googleUser?.authentication;
+  //
+  //   // Create a new credential
+  //   final credential = GoogleAuthProvider.credential(
+  //     accessToken: googleAuth?.accessToken,
+  //     idToken: googleAuth?.idToken,
+  //   );
+  //
+  //   // Once signed in, return the UserCredential
+  //   UserCredential userCredential =
+  //       await FirebaseAuth.instance.signInWithCredential(credential);
+  //   _notify(false);
+  //   if (userCredential.user != null) {
+  //     if (!context.mounted) return;
+  //     Navigator.pushReplacementNamed(context, RouteNames.tabRoute);
+  //   }
+  // }
+  Future<void> signInWithGoogle(BuildContext context, [String? clientId]) async {
     // Trigger the authentication flow
     _notify(true);
 
-    final GoogleSignInAccount? googleUser =
-        await GoogleSignIn(clientId: clientId).signIn();
+    final GoogleSignInAccount? googleUser = await GoogleSignIn(clientId: clientId).signIn();
 
     // Obtain the auth details from the request
-    final GoogleSignInAuthentication? googleAuth =
-        await googleUser?.authentication;
+    final GoogleSignInAuthentication? googleAuth = await googleUser?.authentication;
 
     // Create a new credential
     final credential = GoogleAuthProvider.credential(
@@ -132,13 +156,17 @@ class AuthViewModel extends ChangeNotifier {
       idToken: googleAuth?.idToken,
     );
 
-    // Once signed in, return the UserCredential
-    UserCredential userCredential =
-        await FirebaseAuth.instance.signInWithCredential(credential);
-    _notify(false);
-    if (userCredential.user != null) {
-      if (!context.mounted) return;
-      Navigator.pushReplacementNamed(context, RouteNames.tabRoute);
+    try {
+      // Once signed in, return the UserCredential
+      UserCredential userCredential = await FirebaseAuth.instance.signInWithCredential(credential);
+      _notify(false);
+      if (userCredential.user != null) {
+        if (!context.mounted) return;
+        Navigator.pushReplacementNamed(context, RouteNames.tabRoute);
+      }
+    } catch (e) {
+      print('Error signing in with Google: $e');
+      // Handle the error here
     }
   }
 }

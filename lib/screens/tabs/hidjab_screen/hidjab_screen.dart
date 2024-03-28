@@ -4,8 +4,8 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:zoom_tap_animation/zoom_tap_animation.dart';
-import '../../../data/models/book_model.dart';
 import '../../../data/models/category_model.dart';
+import '../../../data/models/hidjab_model.dart';
 import '../../../utils/colors/app_colors.dart';
 import '../../../utils/styles/app_text_style.dart';
 import '../../../view_models/category_view_model.dart';
@@ -130,7 +130,7 @@ class _HidjabScreenState extends State<HidjabScreen> {
               height: 10.h,
             ),
             categoryDocId == ''
-                ? StreamBuilder<List<BookModel>>(
+                ? StreamBuilder<List<HidjabModel>>(
                     stream: context.read<BooksViewModel>().listenProducts(),
                     builder: (context, snapshot) {
                       if (snapshot.hasError) {
@@ -139,7 +139,7 @@ class _HidjabScreenState extends State<HidjabScreen> {
                         );
                       }
                       if (snapshot.hasData) {
-                        List<BookModel> list = snapshot.data as List<BookModel>;
+                        List<HidjabModel> list = snapshot.data as List<HidjabModel>;
                         return Expanded(
                           child: GridView.count(
                             primary: false,
@@ -323,7 +323,7 @@ class _HidjabScreenState extends State<HidjabScreen> {
                       );
                     },
                   )
-                : StreamBuilder<List<BookModel>>(
+                : StreamBuilder<List<HidjabModel>>(
                     stream: context
                         .read<BooksViewModel>()
                         .listenProductsByCategory(categoryDocId: categoryDocId),
@@ -334,7 +334,7 @@ class _HidjabScreenState extends State<HidjabScreen> {
                         );
                       }
                       if (snapshot.hasData) {
-                        List<BookModel> list = snapshot.data as List<BookModel>;
+                        List<HidjabModel> list = snapshot.data as List<HidjabModel>;
                         return Expanded(
                           child: GridView.count(
                             primary: false,

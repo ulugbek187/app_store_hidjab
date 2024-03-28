@@ -4,8 +4,8 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:zoom_tap_animation/zoom_tap_animation.dart';
-import '../../data/models/book_model.dart';
 import '../../data/models/category_model.dart';
+import '../../data/models/hidjab_model.dart';
 import '../../utils/colors/app_colors.dart';
 import '../../utils/styles/app_text_style.dart';
 import '../../view_models/books_view_model.dart';
@@ -57,7 +57,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
             ),
           ),
         ),
-        body: StreamBuilder<List<BookModel>>(
+        body: StreamBuilder<List<HidjabModel>>(
           stream: context
               .read<BooksViewModel>()
               .listenProductsByCategory(categoryDocId: widget.categoryDocId),
@@ -68,13 +68,13 @@ class _CategoryScreenState extends State<CategoryScreen> {
               );
             }
             if (snapshot.hasData) {
-              List<BookModel> list = snapshot.data as List<BookModel>;
+              List<HidjabModel> list = snapshot.data as List<HidjabModel>;
               return ListView(
                 children: [
                   ...List.generate(
                     list.length,
                     (index) {
-                      BookModel book = list[index];
+                      HidjabModel book = list[index];
                       return ZoomTapAnimation(
                         onTap: () {
                           Navigator.push(

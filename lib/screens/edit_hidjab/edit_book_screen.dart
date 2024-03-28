@@ -3,8 +3,8 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:zoom_tap_animation/zoom_tap_animation.dart';
-import '../../data/models/book_model.dart';
 import '../../data/models/category_model.dart';
+import '../../data/models/hidjab_model.dart';
 import '../../utils/colors/app_colors.dart';
 import '../../utils/styles/app_text_style.dart';
 import '../../view_models/books_view_model.dart';
@@ -18,7 +18,7 @@ class EditBookScreen extends StatefulWidget {
     required this.bookModel,
   });
 
-  final BookModel bookModel;
+  final HidjabModel bookModel;
 
   @override
   State<EditBookScreen> createState() => _EditBookScreenState();
@@ -422,7 +422,7 @@ class _EditBookScreenState extends State<EditBookScreen> {
             const Spacer(),
             ZoomTapAnimation(
               onTap: () async {
-                BookModel category = BookModel(
+                HidjabModel category = HidjabModel(
                   imageUrl:
                       imageUrl == "" ? widget.bookModel.imageUrl : imageUrl,
                   rate: rate == "" ? widget.bookModel.rate : rate,
